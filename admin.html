@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Aadhirai Transport</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    colors: { ink:'#0B0E11', navy:'#1E4A70', steel:'#3E7CA6', steelLight:'#6FA3C9', gold:'#F2A93D', goldDeep:'#D98E1F', bone:'#F3EFE6' },
+    fontFamily: { display:['Oswald','sans-serif'], body:['Inter','sans-serif'], mono:['JetBrains Mono','monospace'] }
+  }}}
+</script>
+<style>
+  body{background:#0B0E11}
+  .flag-stripe{clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);}
+</style>
+</head>
+<body class="bg-ink text-bone font-body min-h-screen">
+
+<!-- LOGIN SCREEN -->
+<div id="loginScreen" class="min-h-screen flex items-center justify-center px-6">
+  <div class="w-full max-w-sm">
+    <div class="flex flex-col items-center mb-8">
+      <img src="logo.png" alt="Aadhirai Transport" class="h-16 w-auto mb-4">
+      <h1 class="font-display uppercase tracking-widest text-sm text-bone/60">Admin Panel</h1>
+    </div>
+    <form onsubmit="return handleLogin(event)" class="bg-[#101720] border border-white/10 rounded-lg p-8 space-y-5">
+      <div>
+        <label class="text-xs uppercase tracking-wider text-bone/50 font-display">Username</label>
+        <input id="loginUser" required class="mt-2 w-full bg-ink border border-white/15 focus:border-gold outline-none rounded px-4 py-3" placeholder="admin">
+      </div>
+      <div>
+        <label class="text-xs uppercase tracking-wider text-bone/50 font-display">Password</label>
+        <input id="loginPass" required type="password" class="mt-2 w-full bg-ink border border-white/15 focus:border-gold outline-none rounded px-4 py-3" placeholder="••••••••">
+      </div>
+      <p id="loginError" class="text-xs text-red-400 hidden">Invalid credentials — check with the backend /api/auth/login endpoint.</p>
+      <button class="w-full font-display uppercase tracking-wider bg-gold text-ink px-6 py-3.5 rounded hover:bg-goldDeep transition-colors">Sign In</button>
+    </form>
+    <p class="text-center text-xs text-bone/30 mt-6">Demo login — admin / admin123. Replace with real auth via the backend API.</p>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
+  <header class="border-b border-white/10 sticky top-0 bg-ink/95 backdrop-blur z-10">
+    <div class="max-w-7xl mx-auto px-6 h-18 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" class="h-9 w-auto" alt="logo">
+        <span class="font-display uppercase tracking-wide text-sm">Aadhirai Transport <span class="text-gold">/ Admin</span></span>
+      </div>
+      <button onclick="handleLogout()" class="text-xs font-display uppercase tracking-wider border border-white/20 rounded px-4 py-2 hover:border-gold hover:text-gold transition-colors">Sign Out</button>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-10">
+    <div class="grid sm:grid-cols-3 gap-5 mb-10">
+      <div class="bg-[#101720] border border-white/10 rounded-lg p-6">
+        <p class="text-xs uppercase tracking-wider text-bone/50 font-display">Active Shipments</p>
+        <p class="font-display text-4xl text-gold mt-2" id="statActive">—</p>
+      </div>
+      <div class="bg-[#101720] border border-white/10 rounded-lg p-6">
+        <p class="text-xs uppercase tracking-wider text-bone/50 font-display">Delivered (30d)</p>
+        <p class="font-display text-4xl text-steelLight mt-2" id="statDelivered">—</p>
+      </div>
+      <div class="bg-[#101720] border border-white/10 rounded-lg p-6">
+        <p class="text-xs uppercase tracking-wider text-bone/50 font-display">New Enquiries</p>
+        <p class="font-display text-4xl text-gold mt-2" id="statEnquiries">—</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-display uppercase tracking-wide text-lg">Shipments</h2>
+      <button onclick="openNewShipment()" class="font-display uppercase text-xs tracking-wider bg-gold text-ink px-5 py-2.5 rounded hover:bg-goldDeep transition-colors">+ New Shipment</button>
+    </div>
+    <div class="bg-[#101720] border border-white/10 rounded-lg overflow-hidden mb-10">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="text-left text-bone/50 uppercase text-xs font-display tracking-wider border-b border-white/10">
+            <th class="px-5 py-3">LR No.</th><th class="px-5 py-3">Route</th><th class="px-5 py-3">Vehicle</th>
+            <th class="px-5 py-3">Status</th><th class="px-5 py-3">Updated</th><th class="px-5 py-3"></th>
+          </tr>
+        </thead>
+        <tbody id="shipmentRows" class="divide-y divide-white/5"></tbody>
+      </table>
+    </div>
+
+    <h2 class="font-display uppercase tracking-wide text-lg mb-4">Recent Enquiries</h2>
+    <div class="bg-[#101720] border border-white/10 rounded-lg overflow-hidden mb-10">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="text-left text-bone/50 uppercase text-xs font-display tracking-wider border-b border-white/10">
+            <th class="px-5 py-3">Name</th><th class="px-5 py-3">Phone</th><th class="px-5 py-3">Route</th><th class="px-5 py-3">Received</th>
+          </tr>
+        </thead>
+        <tbody id="enquiryRows" class="divide-y divide-white/5"></tbody>
+      </table>
+    </div>
+
+    <h2 class="font-display uppercase tracking-wide text-lg mb-4">Customer Reviews</h2>
+    <div class="bg-[#101720] border border-white/10 rounded-lg overflow-hidden">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="text-left text-bone/50 uppercase text-xs font-display tracking-wider border-b border-white/10">
+            <th class="px-5 py-3">Customer</th><th class="px-5 py-3">Rating</th><th class="px-5 py-3">Review</th>
+            <th class="px-5 py-3">Status</th><th class="px-5 py-3"></th>
+          </tr>
+        </thead>
+        <tbody id="reviewRows" class="divide-y divide-white/5"></tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<script>
+// ---- Backend connection ----
+// Point this at your running backend (see backend/server.js). When it's not
+// reachable the panel falls back to demo data automatically, so the design
+// still previews standalone.
+const API_BASE_URL = 'http://localhost:5000/api';
+let authToken = null;
+let demoShipments = [
+  {lr:'AT-2026-00842', route:'Sathyamangalam → Bengaluru', vehicle:'Open Body 14ft', status:'In Transit', updated:'29 Jul, 8:00 AM'},
+  {lr:'AT-2026-00841', route:'Coimbatore → Mumbai', vehicle:'Container 20ft', status:'Delivered', updated:'28 Jul, 6:15 PM'},
+  {lr:'AT-2026-00840', route:'Erode → Delhi', vehicle:'Multi-axle Trailer', status:'Booked', updated:'28 Jul, 11:00 AM'},
+];
+const DEMO = {
+  stats: { active: 14, delivered: 132, enquiries: 6 },
+  enquiries: [
+    {name:'R. Prakash', phone:'98430 XXXXX', route:'Sathyamangalam → Chennai', received:'29 Jul, 7:40 AM'},
+    {name:'M. Selvi', phone:'99420 XXXXX', route:'Coimbatore → Hyderabad', received:'28 Jul, 4:12 PM'},
+  ],
+  reviews: [
+    {id: 1, customer_name: 'Suresh Kumar', rating: 5, review_text: 'On time pickup, driver kept us updated throughout.', is_approved: true},
+    {id: 2, customer_name: 'A. Ramesh', rating: 5, review_text: 'Great service for our Delhi route, will use again.', is_approved: false},
+  ],
+};
+
+async function handleLogin(e){
+  e.preventDefault();
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value.trim();
+
+  // Try the real backend first: POST /api/auth/login
+  try {
+    const res = await fetch(`${API_BASE_URL}/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: u, password: p }),
+      signal: AbortSignal.timeout(3000),
+    });
+    if (res.ok) {
+      const data = await res.json();
+      authToken = data.token;
+      document.getElementById('loginScreen').classList.add('hidden');
+      document.getElementById('dashboard').classList.remove('hidden');
+      loadDashboard();
+      return false;
+    }
+    if (res.status === 401) {
+      document.getElementById('loginError').textContent = 'Invalid username or password.';
+      document.getElementById('loginError').classList.remove('hidden');
+      return false;
+    }
+  } catch {
+    // backend not reachable — fall back to demo login below
+  }
+
+  if (u === 'admin' && p === 'admin123') {
+    authToken = null; // demo mode, no real token
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('dashboard').classList.remove('hidden');
+    loadDashboard();
+  } else {
+    document.getElementById('loginError').textContent = 'Invalid credentials — check with the backend /api/auth/login endpoint.';
+    document.getElementById('loginError').classList.remove('hidden');
+  }
+  return false;
+}
+
+function handleLogout(){
+  authToken = null;
+  document.getElementById('dashboard').classList.add('hidden');
+  document.getElementById('loginScreen').classList.remove('hidden');
+}
+
+function authHeaders(){
+  return authToken
+    ? { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authToken}` }
+    : { 'Content-Type': 'application/json' };
+}
+
+function statusColor(s){
+  return { 'In Transit':'bg-gold/15 text-gold', 'Delivered':'bg-green-500/15 text-green-400', 'Booked':'bg-steel/20 text-steelLight' }[s] || 'bg-white/10 text-bone/60';
+}
+
+async function loadDashboard(){
+  let stats = DEMO.stats, shipments = null, enquiries = DEMO.enquiries, reviews = DEMO.reviews;
+
+  if (authToken) {
+    try {
+      const [sRes, shRes, eRes, rRes] = await Promise.all([
+        fetch(`${API_BASE_URL}/admin/stats`, { headers: authHeaders(), signal: AbortSignal.timeout(3000) }),
+        fetch(`${API_BASE_URL}/admin/shipments`, { headers: authHeaders(), signal: AbortSignal.timeout(3000) }),
+        fetch(`${API_BASE_URL}/admin/enquiries`, { headers: authHeaders(), signal: AbortSignal.timeout(3000) }),
+        fetch(`${API_BASE_URL}/admin/reviews`, { headers: authHeaders(), signal: AbortSignal.timeout(3000) }),
+      ]);
+      if (sRes.ok) stats = await sRes.json();
+      if (shRes.ok) {
+        const rows = await shRes.json();
+        shipments = rows.map(s => ({ lr: s.lr_number, route: `${s.origin} → ${s.destination}`, vehicle: s.vehicle_type, status: s.status, updated: new Date(s.updated_at).toLocaleString() }));
+      }
+      if (eRes.ok) {
+        const rows = await eRes.json();
+        enquiries = rows.map(e => ({ name: e.name, phone: e.phone, route: e.route || '—', received: new Date(e.created_at).toLocaleString() }));
+      }
+      if (rRes.ok) reviews = await rRes.json();
+    } catch {
+      // stay on whatever demo/partial data we already have
+    }
+  }
+  if (!shipments) shipments = demoShipments;
+
+  document.getElementById('statActive').textContent = stats.active;
+  document.getElementById('statDelivered').textContent = stats.delivered;
+  document.getElementById('statEnquiries').textContent = stats.enquiries;
+
+  document.getElementById('shipmentRows').innerHTML = shipments.map(s => `
+    <tr>
+      <td class="px-5 py-3 font-mono text-steelLight">${s.lr}</td>
+      <td class="px-5 py-3">${s.route}</td>
+      <td class="px-5 py-3 text-bone/60">${s.vehicle}</td>
+      <td class="px-5 py-3"><span class="text-xs px-2.5 py-1 rounded-full ${statusColor(s.status)}">${s.status}</span></td>
+      <td class="px-5 py-3 text-bone/40 font-mono text-xs">${s.updated}</td>
+      <td class="px-5 py-3 text-right"><button onclick="updateStatus('${s.lr}')" class="text-xs text-gold hover:underline">Update</button></td>
+    </tr>`).join('');
+
+  document.getElementById('enquiryRows').innerHTML = enquiries.map(e => `
+    <tr>
+      <td class="px-5 py-3">${e.name}</td>
+      <td class="px-5 py-3 font-mono text-bone/60">${e.phone}</td>
+      <td class="px-5 py-3">${e.route}</td>
+      <td class="px-5 py-3 text-bone/40 font-mono text-xs">${e.received}</td>
+    </tr>`).join('');
+
+  document.getElementById('reviewRows').innerHTML = reviews.map(r => `
+    <tr>
+      <td class="px-5 py-3">${r.customer_name}</td>
+      <td class="px-5 py-3 text-gold">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</td>
+      <td class="px-5 py-3 text-bone/60 max-w-xs truncate">${r.review_text}</td>
+      <td class="px-5 py-3"><span class="text-xs px-2.5 py-1 rounded-full ${r.is_approved ? 'bg-green-500/15 text-green-400' : 'bg-white/10 text-bone/50'}">${r.is_approved ? 'Live' : 'Pending'}</span></td>
+      <td class="px-5 py-3 text-right"><button onclick="toggleReview(${r.id}, ${!r.is_approved})" class="text-xs text-gold hover:underline">${r.is_approved ? 'Hide' : 'Approve'}</button></td>
+    </tr>`).join('');
+}
+
+// New shipment — LR number is auto-generated (AT-YYYY-00001, incrementing).
+// You only provide the route + vehicle type.
+async function openNewShipment(){
+  const origin = prompt('Pickup location (origin):', 'Sathyamangalam');
+  if (!origin) return;
+  const destination = prompt('Delivery location (destination):');
+  if (!destination) return;
+  const vehicle_type = prompt('Vehicle type:', 'Open Body 14ft');
+  if (!vehicle_type) return;
+
+  if (authToken) {
+    try {
+      const res = await fetch(`${API_BASE_URL}/admin/shipments`, {
+        method: 'POST', headers: authHeaders(),
+        body: JSON.stringify({ origin, destination, vehicle_type }),
+        signal: AbortSignal.timeout(3000),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        alert(`Shipment created. LR number: ${data.lr_number}`);
+        loadDashboard();
+        return;
+      }
+    } catch {}
+  }
+
+  // Demo fallback — generate an LR number client-side the same way the backend does
+  const year = new Date().getFullYear();
+  const nextNum = demoShipments.length + 843;
+  const lr = `AT-${year}-${String(nextNum).padStart(5, '0')}`;
+  demoShipments.unshift({ lr, route: `${origin} → ${destination}`, vehicle: vehicle_type, status: 'Booked', updated: new Date().toLocaleString() });
+  alert(`(Demo mode — connect the backend to persist this) Shipment created. LR number: ${lr}`);
+  loadDashboard();
+}
+
+async function updateStatus(lr){
+  const status = prompt(`New status for ${lr}? (Booked / In Transit / Delivered)`);
+  if (!status) return;
+  alert('Wire this to PATCH /api/admin/shipments/:id with the shipment\'s numeric id to persist the update.');
+}
+
+async function toggleReview(id, approve){
+  if (authToken) {
+    try {
+      const res = await fetch(`${API_BASE_URL}/admin/reviews/${id}`, {
+        method: 'PATCH', headers: authHeaders(),
+        body: JSON.stringify({ is_approved: approve }),
+        signal: AbortSignal.timeout(3000),
+      });
+      if (res.ok) { loadDashboard(); return; }
+    } catch {}
+  }
+  const r = DEMO.reviews.find(r => r.id === id);
+  if (r) r.is_approved = approve;
+  loadDashboard();
+}
+</script>
+</body>
+</html>

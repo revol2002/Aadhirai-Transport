@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aadhirai Transport — All India Freight & Logistics, Sathyamangalam</title>
+<meta name="description" content="Aadhirai Transport — All India permit freight carriers based in Sathyamangalam, Tamil Nadu. Any type of vehicle arranged. Track your shipment online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: '#0B0E11',
+          navy: '#1E4A70',
+          steel: '#3E7CA6',
+          steelLight: '#6FA3C9',
+          gold: '#F2A93D',
+          goldDeep: '#D98E1F',
+          bone: '#F3EFE6',
+        },
+        fontFamily: {
+          display: ['Oswald', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['JetBrains Mono', 'monospace'],
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #0B0E11; }
+  .flag-stripe {
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+  }
+  .flag-stripe-rev {
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  .road-divider {
+    background-image: repeating-linear-gradient(90deg, #F2A93D 0px, #F2A93D 28px, transparent 28px, transparent 52px);
+    height: 4px;
+  }
+  .grain {
+    background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 3px 3px;
+  }
+  ::selection { background: #F2A93D; color: #0B0E11; }
+  .truck-glow { filter: drop-shadow(0 0 40px rgba(62,124,166,0.35)); }
+</style>
+</head>
+<body class="bg-ink text-bone font-body antialiased">
+
+<!-- NAV -->
+<header class="fixed top-0 inset-x-0 z-50 bg-ink/90 backdrop-blur border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3">
+      <img src="logo.png" alt="Aadhirai Transport" class="h-11 w-auto">
+      <span class="font-display text-xl tracking-wide hidden sm:block">AADHIRAI <span class="text-gold">TRANSPORT</span></span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 font-display text-sm tracking-wider uppercase text-bone/80">
+      <a href="#services" class="hover:text-gold transition-colors">Services</a>
+      <a href="#track" class="hover:text-gold transition-colors">Track Shipment</a>
+      <a href="#about" class="hover:text-gold transition-colors">About</a>
+      <a href="#reviews" class="hover:text-gold transition-colors">Reviews</a>
+      <a href="#contact" class="hover:text-gold transition-colors">Contact</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <a href="https://wa.me/918903096477?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking%20with%20Aadhirai%20Transport" target="_blank" rel="noopener" class="hidden sm:flex items-center gap-2 text-steelLight font-mono text-sm hover:text-gold transition-colors">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05 2C6.578 2 2.13 6.448 2.13 11.92c0 1.868.518 3.617 1.417 5.113L2 22l5.09-1.526a9.86 9.86 0 004.96 1.34c5.472 0 9.92-4.448 9.92-9.92C21.97 6.448 17.522 2 12.05 2zm0 17.837a7.9 7.9 0 01-4.03-1.104l-.289-.172-3.017.905.919-2.94-.188-.301a7.9 7.9 0 01-1.213-4.305c0-4.372 3.556-7.928 7.928-7.928 4.373 0 7.93 3.556 7.93 7.928 0 4.373-3.557 7.917-7.94 7.917z"/></svg>
+        89030 96477
+      </a>
+      <a href="admin.html" class="text-xs font-display tracking-wider uppercase px-4 py-2 border border-white/20 rounded hover:border-gold hover:text-gold transition-colors">Admin</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="relative pt-20 min-h-screen flex items-center overflow-hidden">
+  <div class="absolute inset-0 grain opacity-40"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-ink via-ink to-[#0d1520]"></div>
+
+  <!-- Illustrated highway / truck scene -->
+  <svg class="absolute bottom-0 left-0 w-full h-[55%] opacity-90 truck-glow" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMax slice">
+    <!-- horizon glow -->
+    <ellipse cx="600" cy="380" rx="700" ry="60" fill="#1E4A70" opacity="0.25"/>
+    <!-- road -->
+    <rect x="0" y="330" width="1200" height="70" fill="#12161B"/>
+    <rect x="0" y="330" width="1200" height="4" fill="#3E7CA6" opacity="0.4"/>
+    <g fill="#F2A93D" opacity="0.8">
+      <rect x="30" y="362" width="60" height="6"/><rect x="150" y="362" width="60" height="6"/>
+      <rect x="270" y="362" width="60" height="6"/><rect x="390" y="362" width="60" height="6"/>
+      <rect x="510" y="362" width="60" height="6"/><rect x="630" y="362" width="60" height="6"/>
+      <rect x="750" y="362" width="60" height="6"/><rect x="870" y="362" width="60" height="6"/>
+      <rect x="990" y="362" width="60" height="6"/><rect x="1110" y="362" width="60" height="6"/>
+    </g>
+    <!-- distant hills -->
+    <path d="M0 330 Q150 270 320 330 T700 330 T1200 330 V330 H0 Z" fill="#152230" opacity="0.6"/>
+    <!-- TRUCK -->
+    <g transform="translate(430,175)">
+      <!-- trailer -->
+      <rect x="0" y="10" width="330" height="120" rx="6" fill="#1E4A70"/>
+      <rect x="10" y="20" width="310" height="14" fill="#3E7CA6"/>
+      <rect x="0" y="118" width="330" height="12" fill="#0B0E11"/>
+      <text x="165" y="80" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="30" fill="#F2A93D" letter-spacing="2">AADHIRAI</text>
+      <text x="165" y="104" text-anchor="middle" font-family="Oswald" font-weight="500" font-size="13" fill="#F3EFE6" letter-spacing="6">TRANSPORT</text>
+      <!-- cab -->
+      <path d="M330 45 h55 a18 18 0 0 1 18 12 l14 40 a10 10 0 0 1 -10 13 h-77 z" fill="#F2A93D"/>
+      <rect x="352" y="60" width="34" height="24" rx="3" fill="#0B0E11" opacity="0.85"/>
+      <rect x="330" y="118" width="90" height="12" fill="#0B0E11"/>
+      <!-- exhaust flag stripes echoing logo -->
+      <g fill="#F2A93D" opacity="0.85">
+        <polygon points="418,50 460,50 445,66 403,66"/>
+        <polygon points="428,72 480,72 463,88 411,88"/>
+      </g>
+      <!-- wheels -->
+      <circle cx="55" cy="132" r="20" fill="#0B0E11" stroke="#3E7CA6" stroke-width="4"/>
+      <circle cx="150" cy="132" r="20" fill="#0B0E11" stroke="#3E7CA6" stroke-width="4"/>
+      <circle cx="360" cy="132" r="20" fill="#0B0E11" stroke="#3E7CA6" stroke-width="4"/>
+    </g>
+    <!-- motion lines -->
+    <g stroke="#3E7CA6" stroke-width="3" opacity="0.4" stroke-linecap="round">
+      <line x1="330" y1="230" x2="390" y2="230"/>
+      <line x1="310" y1="250" x2="380" y2="250"/>
+      <line x1="330" y1="270" x2="385" y2="270"/>
+    </g>
+  </svg>
+
+  <div class="relative max-w-7xl mx-auto px-6 pb-56 pt-10 w-full">
+    <p class="font-mono text-xs tracking-[0.3em] text-gold uppercase mb-5">Sathyamangalam · Tamil Nadu · Est. Freight Carriers</p>
+    <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.95] uppercase max-w-3xl">
+      Freight moves <span class="text-transparent bg-clip-text bg-gradient-to-r from-steelLight to-gold">All India</span>,
+      on your schedule.
+    </h1>
+    <p class="mt-6 max-w-xl text-bone/70 text-lg">
+      All-India permit fleet out of Sathyamangalam. Any type of vehicle arranged — open body, container, trailer — for full-load and part-load freight, door to door.
+    </p>
+    <div class="mt-9 flex flex-wrap gap-4">
+      <a href="#track" class="font-display uppercase tracking-wider bg-gold text-ink px-7 py-3.5 rounded hover:bg-goldDeep transition-colors">Track Your Shipment</a>
+      <a href="#contact" class="font-display uppercase tracking-wider border border-steelLight/50 text-bone px-7 py-3.5 rounded hover:border-gold hover:text-gold transition-colors">Book a Vehicle</a>
+    </div>
+
+    <div class="road-divider w-40 mt-12"></div>
+    <div class="mt-6 grid grid-cols-3 gap-8 max-w-lg font-display">
+      <div><p class="text-3xl text-gold">Any</p><p class="text-xs uppercase tracking-wider text-bone/60 mt-1">Vehicle Type</p></div>
+      <div><p class="text-3xl text-gold">28</p><p class="text-xs uppercase tracking-wider text-bone/60 mt-1">States Covered</p></div>
+      <div><p class="text-3xl text-gold">24/7</p><p class="text-xs uppercase tracking-wider text-bone/60 mt-1">Dispatch Desk</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="relative py-28 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-end justify-between flex-wrap gap-6 mb-14">
+      <div>
+        <p class="font-mono text-xs tracking-[0.3em] text-gold uppercase mb-3">What we move</p>
+        <h2 class="font-display text-4xl sm:text-5xl uppercase">Fleet & Freight Services</h2>
+      </div>
+      <div class="road-divider w-32"></div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-px bg-white/10">
+      <div class="bg-ink p-8 hover:bg-[#101720] transition-colors group">
+        <div class="flag-stripe w-12 h-8 bg-gold mb-6 group-hover:w-16 transition-all"></div>
+        <h3 class="font-display text-xl uppercase mb-3">Full Truck Load</h3>
+        <p class="text-bone/60 text-sm leading-relaxed">Dedicated vehicles for bulk consignments — open body trucks, closed containers, and multi-axle trailers, matched to your cargo.</p>
+      </div>
+      <div class="bg-ink p-8 hover:bg-[#101720] transition-colors group">
+        <div class="flag-stripe w-12 h-8 bg-steel mb-6 group-hover:w-16 transition-all"></div>
+        <h3 class="font-display text-xl uppercase mb-3">Part Load Freight</h3>
+        <p class="text-bone/60 text-sm leading-relaxed">Share vehicle space for smaller consignments across our All India network, without paying for a full truck.</p>
+      </div>
+      <div class="bg-ink p-8 hover:bg-[#101720] transition-colors group">
+        <div class="flag-stripe w-12 h-8 bg-gold mb-6 group-hover:w-16 transition-all"></div>
+        <h3 class="font-display text-xl uppercase mb-3">Any Vehicle, Arranged</h3>
+        <p class="text-bone/60 text-sm leading-relaxed">Need a specific body type or tonnage? We source and arrange the right vehicle for your route and cargo.</p>
+      </div>
+      <div class="bg-ink p-8 hover:bg-[#101720] transition-colors group">
+        <div class="flag-stripe w-12 h-8 bg-steel mb-6 group-hover:w-16 transition-all"></div>
+        <h3 class="font-display text-xl uppercase mb-3">All India Permit</h3>
+        <p class="text-bone/60 text-sm leading-relaxed">Interstate permits in place across our fleet — no border delays, no last-minute paperwork holdups.</p>
+      </div>
+      <div class="bg-ink p-8 hover:bg-[#101720] transition-colors group">
+        <div class="flag-stripe w-12 h-8 bg-gold mb-6 group-hover:w-16 transition-all"></div>
+        <h3 class="font-display text-xl uppercase mb-3">Door-to-Door Pickup</h3>
+        <p class="text-bone/60 text-sm leading-relaxed">Loading coordinated at your dock or warehouse, with delivery confirmation at the consignee's door.</p>
+      </div>
+      <div class="bg-ink p-8 hover:bg-[#101720] transition-colors group">
+        <div class="flag-stripe w-12 h-8 bg-steel mb-6 group-hover:w-16 transition-all"></div>
+        <h3 class="font-display text-xl uppercase mb-3">Live Tracking</h3>
+        <p class="text-bone/60 text-sm leading-relaxed">Every consignment gets a tracking ID — check status, current location, and delivery ETA any time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKING -->
+<section id="track" class="relative py-28 bg-[#0d1520] border-t border-white/10">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <p class="font-mono text-xs tracking-[0.3em] text-gold uppercase mb-3">Consignment Status</p>
+    <h2 class="font-display text-4xl sm:text-5xl uppercase mb-4">Track Your Truck</h2>
+    <p class="text-bone/60 mb-10 max-w-lg mx-auto">Enter the LR / consignment number from your booking receipt to see live status.</p>
+
+    <form id="trackForm" class="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto" onsubmit="return handleTrack(event)">
+      <input id="lrInput" type="text" required placeholder="e.g. AT-2026-00842" autocomplete="off"
+        class="flex-1 bg-ink border border-white/15 focus:border-gold outline-none rounded px-5 py-4 font-mono text-bone placeholder:text-bone/30">
+      <button type="submit" class="font-display uppercase tracking-wider bg-gold text-ink px-8 py-4 rounded hover:bg-goldDeep transition-colors">Track</button>
+    </form>
+
+    <div id="trackResult" class="hidden mt-10 text-left bg-ink border border-white/10 rounded-lg p-7 max-w-xl mx-auto">
+      <div class="flex items-center justify-between mb-6">
+        <span class="font-mono text-sm text-steelLight" id="resLR"></span>
+        <span class="text-xs uppercase tracking-wider bg-gold/15 text-gold px-3 py-1 rounded-full" id="resStatus"></span>
+      </div>
+      <ol class="relative border-l border-white/15 ml-2 space-y-6" id="resTimeline"></ol>
+    </div>
+    <p class="text-xs text-bone/40 mt-6">Live status is pulled from our dispatch database via the tracking API.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="relative py-28 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <p class="font-mono text-xs tracking-[0.3em] text-gold uppercase mb-3">Who's driving this</p>
+      <h2 class="font-display text-4xl sm:text-5xl uppercase mb-6">Built on Sathyamangalam's freight corridor</h2>
+      <p class="text-bone/70 leading-relaxed mb-4">
+        Aadhirai Transport runs out of Sathyamangalam, Tamil Nadu — a road freight junction with easy reach into Kerala, Karnataka, and the rest of the country. Our All India permit fleet handles any vehicle type, from single-axle trucks to multi-axle trailers.
+      </p>
+      <p class="text-bone/70 leading-relaxed">
+        Every booking is handled directly by our proprietor's desk, so the person quoting your load is the same person accountable for its delivery.
+      </p>
+      <div class="mt-8 flex items-center gap-4 border-t border-white/10 pt-8">
+        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-steel to-navy flex items-center justify-center font-display text-xl text-gold">GS</div>
+        <div>
+          <p class="font-display uppercase tracking-wide">Gunasekaran S</p>
+          <p class="text-bone/50 text-sm">Proprietor, Aadhirai Transport</p>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="bg-[#101720] border border-white/10 rounded-lg p-6">
+        <p class="font-display text-3xl text-gold mb-1">All Types</p>
+        <p class="text-bone/60 text-sm">Open, closed, container & trailer vehicles arranged</p>
+      </div>
+      <div class="bg-[#101720] border border-white/10 rounded-lg p-6 mt-8">
+        <p class="font-display text-3xl text-gold mb-1">Pan India</p>
+        <p class="text-bone/60 text-sm">All India permit — no interstate holdups</p>
+      </div>
+      <div class="bg-[#101720] border border-white/10 rounded-lg p-6 -mt-8">
+        <p class="font-display text-3xl text-gold mb-1">Direct</p>
+        <p class="text-bone/60 text-sm">Proprietor-managed booking desk</p>
+      </div>
+      <div class="bg-[#101720] border border-white/10 rounded-lg p-6">
+        <p class="font-display text-3xl text-gold mb-1">Tracked</p>
+        <p class="text-bone/60 text-sm">Every LR gets live status updates</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUSTOMER REVIEWS -->
+<section id="reviews" class="relative py-28 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-end justify-between flex-wrap gap-6 mb-14">
+      <div>
+        <p class="font-mono text-xs tracking-[0.3em] text-gold uppercase mb-3">From the road</p>
+        <h2 class="font-display text-4xl sm:text-5xl uppercase">Customer Reviews</h2>
+      </div>
+      <div class="road-divider w-32"></div>
+    </div>
+
+    <div id="reviewsList" class="grid md:grid-cols-3 gap-6 mb-14">
+      <!-- populated by loadReviews() -->
+    </div>
+
+    <div class="max-w-xl mx-auto bg-[#101720] border border-white/10 rounded-lg p-8">
+      <h3 class="font-display uppercase tracking-wide text-lg mb-5">Share your experience</h3>
+      <form class="space-y-4" onsubmit="return handleReviewSubmit(event)">
+        <input name="rname" required placeholder="Your name" class="w-full bg-ink border border-white/15 focus:border-gold outline-none rounded px-4 py-3 placeholder:text-bone/30">
+        <select name="rrating" required class="w-full bg-ink border border-white/15 focus:border-gold outline-none rounded px-4 py-3 text-bone/80">
+          <option value="">Rating</option>
+          <option value="5">★★★★★ Excellent</option>
+          <option value="4">★★★★☆ Good</option>
+          <option value="3">★★★☆☆ Average</option>
+          <option value="2">★★☆☆☆ Below average</option>
+          <option value="1">★☆☆☆☆ Poor</option>
+        </select>
+        <textarea name="rtext" required rows="3" placeholder="Tell us about your shipment..." class="w-full bg-ink border border-white/15 focus:border-gold outline-none rounded px-4 py-3 placeholder:text-bone/30"></textarea>
+        <button class="w-full font-display uppercase tracking-wider bg-gold text-ink px-6 py-3.5 rounded hover:bg-goldDeep transition-colors">Submit Review</button>
+        <p class="text-xs text-bone/40" id="reviewNote"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="relative py-28 bg-[#0d1520] border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-14">
+    <div class="lg:col-span-2">
+      <p class="font-mono text-xs tracking-[0.3em] text-gold uppercase mb-3">Get in touch</p>
+      <h2 class="font-display text-4xl uppercase mb-8">Book a Vehicle</h2>
+      <div class="space-y-6">
+        <a href="https://wa.me/918903096477?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking%20with%20Aadhirai%20Transport" target="_blank" rel="noopener" class="flex items-start gap-4 group">
+          <svg class="w-5 h-5 mt-1 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05 2C6.578 2 2.13 6.448 2.13 11.92c0 1.868.518 3.617 1.417 5.113L2 22l5.09-1.526a9.86 9.86 0 004.96 1.34c5.472 0 9.92-4.448 9.92-9.92C21.97 6.448 17.522 2 12.05 2zm0 17.837a7.9 7.9 0 01-4.03-1.104l-.289-.172-3.017.905.919-2.94-.188-.301a7.9 7.9 0 01-1.213-4.305c0-4.372 3.556-7.928 7.928-7.928 4.373 0 7.93 3.556 7.93 7.928 0 4.373-3.557 7.917-7.94 7.917z"/></svg>
+          <div><p class="font-display uppercase text-sm tracking-wide text-bone/50">Phone / WhatsApp</p><p class="font-mono text-lg group-hover:text-gold transition-colors">+91 89030 96477</p><p class="text-xs text-bone/40 mt-0.5">Tap to chat on WhatsApp</p></div>
+        </a>
+        <a href="mailto:aadhiraitransport@gmail.com" class="flex items-start gap-4 group">
+          <svg class="w-5 h-5 mt-1 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <div><p class="font-display uppercase text-sm tracking-wide text-bone/50">Email</p><p class="font-mono text-lg group-hover:text-gold transition-colors break-all">aadhiraitransport@gmail.com</p></div>
+        </a>
+        <div class="flex items-start gap-4">
+          <svg class="w-5 h-5 mt-1 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <div><p class="font-display uppercase text-sm tracking-wide text-bone/50">Yard / Office</p><p class="text-lg">Sathyamangalam, Tamil Nadu – 638401</p></div>
+        </div>
+      </div>
+    </div>
+
+    <form class="lg:col-span-3 grid sm:grid-cols-2 gap-5" onsubmit="return handleEnquiry(event)">
+      <input required placeholder="Your name" class="bg-ink border border-white/15 focus:border-gold outline-none rounded px-4 py-3.5 sm:col-span-1 placeholder:text-bone/30">
+      <input required type="tel" placeholder="Phone number" class="bg-ink border border-white/15 focus:border-gold outline-none rounded px-4 py-3.5 sm:col-span-1 placeholder:text-bone/30">
+      <input placeholder="From — To (route)" class="bg-ink border border-white/15 focus:border-gold outline-none rounded px-4 py-3.5 sm:col-span-2 placeholder:text-bone/30">
+      <textarea placeholder="Cargo details, vehicle type needed, dates..." rows="4" class="bg-ink border border-white/15 focus:border-gold outline-none rounded px-4 py-3.5 sm:col-span-2 placeholder:text-bone/30"></textarea>
+      <button class="font-display uppercase tracking-wider bg-gold text-ink px-7 py-3.5 rounded hover:bg-goldDeep transition-colors sm:col-span-2">Send Enquiry</button>
+      <p class="text-xs text-bone/40 sm:col-span-2" id="enquiryNote"></p>
+    </form>
+  </div>
+</section>
+
+<footer class="border-t border-white/10 py-10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3">
+      <img src="logo.png" alt="Aadhirai Transport" class="h-8 w-auto">
+      <span class="font-display text-sm tracking-wide text-bone/60">AADHIRAI TRANSPORT · SATHYAMANGALAM</span>
+    </div>
+    <p class="text-xs text-bone/40">© 2026 Aadhirai Transport. Proprietor: Gunasekaran S. All India permit fleet.</p>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp button -->
+<a href="https://wa.me/918903096477?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20a%20booking%20with%20Aadhirai%20Transport"
+   target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg shadow-black/40 hover:scale-105 transition-transform">
+  <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.05 2C6.578 2 2.13 6.448 2.13 11.92c0 1.868.518 3.617 1.417 5.113L2 22l5.09-1.526a9.86 9.86 0 004.96 1.34c5.472 0 9.92-4.448 9.92-9.92C21.97 6.448 17.522 2 12.05 2zm0 17.837a7.9 7.9 0 01-4.03-1.104l-.289-.172-3.017.905.919-2.94-.188-.301a7.9 7.9 0 01-1.213-4.305c0-4.372 3.556-7.928 7.928-7.928 4.373 0 7.93 3.556 7.93 7.928 0 4.373-3.557 7.917-7.94 7.917z"/></svg>
+</a>
+
+<script>
+// ---- Backend connection config ----
+// Point this at your running backend. Leave as-is to keep using demo data
+// when no backend is reachable (the site will fall back automatically).
+const API_BASE_URL = 'http://localhost:5000/api';
+
+async function apiAvailable() {
+  try {
+    const res = await fetch(`${API_BASE_URL}/health`, { signal: AbortSignal.timeout(1500) });
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+// Demo tracking lookup — wire this to GET /api/tracking/:lr on your backend
+const DEMO_TRACKS = {
+  "AT-2026-00842": { status: "In Transit", steps: [
+    {t:"Booked at Sathyamangalam yard", d:"27 Jul, 9:10 AM"},
+    {t:"Departed origin hub", d:"27 Jul, 1:40 PM"},
+    {t:"Crossed Salem checkpoint", d:"28 Jul, 6:05 AM"},
+    {t:"In transit to Bengaluru", d:"29 Jul, 8:00 AM · current"},
+  ]}
+};
+
+function renderTrackResult(lr, status, steps){
+  const box = document.getElementById('trackResult');
+  box.classList.remove('hidden');
+  document.getElementById('resLR').textContent = lr || '—';
+  document.getElementById('resStatus').textContent = status;
+  const timeline = document.getElementById('resTimeline');
+  timeline.innerHTML = '';
+  steps.forEach(s => {
+    const li = document.createElement('li');
+    li.className = 'ml-4';
+    li.innerHTML = `<div class="absolute w-2.5 h-2.5 bg-gold rounded-full -left-[5px] mt-1.5"></div>
+      <p class="text-sm text-bone">${s.t}</p><p class="text-xs text-bone/40 font-mono">${s.d}</p>`;
+    timeline.appendChild(li);
+  });
+}
+
+function renderTrackNotFound(lr){
+  const box = document.getElementById('trackResult');
+  box.classList.remove('hidden');
+  document.getElementById('resLR').textContent = lr || '—';
+  document.getElementById('resStatus').textContent = 'Not found';
+  const timeline = document.getElementById('resTimeline');
+  timeline.innerHTML = '';
+  const li = document.createElement('li');
+  li.className = 'ml-4 text-bone/50 text-sm';
+  li.textContent = 'No record for this ID. Try AT-2026-00842 for a demo, or check the LR number and try again.';
+  timeline.appendChild(li);
+}
+
+async function handleTrack(e){
+  e.preventDefault();
+  const lr = document.getElementById('lrInput').value.trim().toUpperCase();
+
+  // Try the real backend first (GET /api/tracking/:lr)
+  try {
+    const res = await fetch(`${API_BASE_URL}/tracking/${encodeURIComponent(lr)}`, { signal: AbortSignal.timeout(3000) });
+    if (res.ok) {
+      const data = await res.json();
+      const steps = (data.timeline || []).map(ev => ({ t: ev.event_text, d: new Date(ev.event_time).toLocaleString() }));
+      renderTrackResult(data.lr_number, data.status, steps);
+      return false;
+    }
+    if (res.status === 404) {
+      renderTrackNotFound(lr);
+      return false;
+    }
+  } catch {
+    // backend not reachable — fall through to demo data below
+  }
+
+  const data = DEMO_TRACKS[lr];
+  if (!data) { renderTrackNotFound(lr); return false; }
+  renderTrackResult(lr, data.status, data.steps);
+  return false;
+}
+
+async function handleEnquiry(e){
+  e.preventDefault();
+  const form = e.target;
+  const [nameEl, phoneEl, routeEl, msgEl] = form.querySelectorAll('input, textarea');
+  const note = document.getElementById('enquiryNote');
+  const payload = { name: nameEl.value, phone: phoneEl.value, route: routeEl.value, message: msgEl.value };
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/enquiries`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(3000),
+    });
+    if (res.ok) {
+      note.textContent = 'Thanks — we\'ve received your enquiry and will call you back shortly.';
+      note.classList.add('text-gold');
+      form.reset();
+      return false;
+    }
+  } catch {
+    // backend not reachable — fall through
+  }
+  note.textContent = 'Saved locally for demo — connect the backend API (POST /api/enquiries) to receive real submissions.';
+  note.classList.add('text-gold');
+  return false;
+}
+
+// ---- Customer reviews ----
+const DEMO_REVIEWS = [
+  { customer_name: 'Suresh Kumar', rating: 5, review_text: 'Booked a container for Coimbatore to Mumbai. On time pickup and the driver kept us updated throughout.' },
+  { customer_name: 'Divya R.', rating: 5, review_text: 'Good rates for part-load freight and the tracking ID actually works. Will book again.' },
+  { customer_name: 'Manikandan P.', rating: 4, review_text: 'Arranged a trailer for us on short notice for an interstate move. Smooth experience overall.' },
+];
+
+function starString(n){
+  return '★'.repeat(n) + '☆'.repeat(5 - n);
+}
+
+function renderReviews(list){
+  const wrap = document.getElementById('reviewsList');
+  if (!list.length) {
+    wrap.innerHTML = '<p class="text-bone/40 text-sm">No reviews yet — be the first to share your experience.</p>';
+    return;
+  }
+  wrap.innerHTML = list.map(r => `
+    <div class="bg-[#101720] border border-white/10 rounded-lg p-6">
+      <p class="text-gold tracking-wider mb-3">${starString(r.rating)}</p>
+      <p class="text-bone/80 text-sm leading-relaxed mb-4">"${r.review_text.replace(/</g,'&lt;')}"</p>
+      <p class="font-display uppercase text-xs tracking-wider text-bone/50">${r.customer_name.replace(/</g,'&lt;')}</p>
+    </div>`).join('');
+}
+
+async function loadReviews(){
+  try {
+    const res = await fetch(`${API_BASE_URL}/reviews`, { signal: AbortSignal.timeout(3000) });
+    if (res.ok) {
+      const data = await res.json();
+      renderReviews(data.length ? data : DEMO_REVIEWS);
+      return;
+    }
+  } catch {}
+  renderReviews(DEMO_REVIEWS);
+}
+loadReviews();
+
+async function handleReviewSubmit(e){
+  e.preventDefault();
+  const form = e.target;
+  const name = form.querySelector('[name=rname]').value;
+  const rating = Number(form.querySelector('[name=rrating]').value);
+  const text = form.querySelector('[name=rtext]').value;
+  const note = document.getElementById('reviewNote');
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/reviews`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ customer_name: name, rating, review_text: text }),
+      signal: AbortSignal.timeout(3000),
+    });
+    if (res.ok) {
+      note.textContent = 'Thanks for the review! It will appear here once approved.';
+      note.classList.add('text-gold');
+      form.reset();
+      return false;
+    }
+  } catch {}
+  note.textContent = 'Saved locally for demo — connect the backend API (POST /api/reviews) to store real reviews.';
+  note.classList.add('text-gold');
+  return false;
+}
+</script>
+</body>
+</html>
